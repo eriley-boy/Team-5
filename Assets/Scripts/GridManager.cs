@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GridManager : MonoBehaviour
 {
@@ -10,14 +7,9 @@ public class GridManager : MonoBehaviour
     [SerializeField]
     private int cols = 8;
     [SerializeField]
-    private float tileSize = 1; 
+    private float tileSize = 1;
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        GenerateGrid();
-    }
+    void Start() => GenerateGrid();
 
     private void GenerateGrid()
     {
@@ -32,8 +24,6 @@ public class GridManager : MonoBehaviour
                 float posY = row * -tileSize;
 
                 tile.transform.position = new Vector2(posX, posY);
-
-
             }
         }
 
@@ -42,11 +32,5 @@ public class GridManager : MonoBehaviour
         float gridW = cols * tileSize;
         float gridH = rows * tileSize;
         transform.position = new Vector2(-gridW / 2 + tileSize / 2, gridH / 2 - tileSize / 2);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
