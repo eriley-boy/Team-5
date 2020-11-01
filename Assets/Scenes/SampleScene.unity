@@ -156,6 +156,7 @@ MonoBehaviour:
   width: 8
   height: 5
   originPos: {x: -3, y: -5, z: 0}
+  currentPlacement: {fileID: 8227953901326424577, guid: d3e2117ec5e67e64ba2b1c92710d88e1, type: 3}
 --- !u!4 &401523629
 Transform:
   m_ObjectHideFlags: 0
