@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 
 public class MouseScript : MonoBehaviour
 {
@@ -9,7 +10,9 @@ public class MouseScript : MonoBehaviour
     [SerializeField] float cellSize = 1f;
     [SerializeField] int width = 8, height = 5;
     [SerializeField] Vector3 originPos = new Vector3(-3,-5);
-    public GameObject currentPlacement;
+
+    public Tile highlightTile;
+    public Tilemap highlightMap;
 
     // Start is called before the first frame update
     void Start()
@@ -37,10 +40,8 @@ public class MouseScript : MonoBehaviour
         {
             Vector2Int MousePos = world.GetCell(TGrid<int>.GetMouseWorldPos());
             Debug.Log($"X = {MousePos.x}, Y = {MousePos.y}, VALUE : {world.gridArray[MousePos.x, MousePos.y]}");
-            GameObject placement = Instantiate(currentPlacement, transform);
-            // Not sure why it's not going to the right position, I asked people on Unity Discord but
-            // I didn't understand what they meant
-            placement.transform.position = world.GetWorldPosition(MousePos.x , MousePos.y);
+            highlightMap.SetTile((Vector3Int)MousePos, highlightTile);
+
         }
 
         //secondary click
